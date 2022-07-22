@@ -1,42 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row,Col } from 'react-bootstrap';
 import CardItem from './CardItem';
-import image from '../assets/gaby.png';
+import axios from 'axios';
 
-const dummyProducts = [
-    {
-        id:0,
-        title : "product A",
-        price: 200000,
-        description : "lorem ipsum",
-        image: image,
-    },
-    {
-        id:1,
-        title : "product B",
-        price: 200000,
-        description : "lorem ipsum",
-        image: image,
-    },
-    {
-        id:3,
-        title : "product C",
-        price: 200000,
-        description : "lorem ipsum",
-        image: image,
-    },
-];
 
 function CardList() {
+const [products, setProducts] = useState([]);
+
+useEffect(() => {
+ axios.get('https://eshop.reskimulud.my.id/products')
+  .then((res) => setProducts(res.data.data.products))
+}, []);
+
   return (
    <Row xs={1} xl={4} sm={2} lg={3} md={3} >
-   {dummyProducts.map((product) => (
+   {products.map((product) => (
      <Col key={product.id} >
      <CardItem item={product} />
      </Col>
    ))}
    </Row>
-  )
+  );
 }
 
 export default CardList;
