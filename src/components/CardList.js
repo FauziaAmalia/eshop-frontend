@@ -3,8 +3,8 @@ import { Row,Col } from 'react-bootstrap';
 import CardItem from './CardItem';
 import axios from 'axios';
 
-
-function CardList() {
+ 
+function CardList(isLogedIn) {
 const [products, setProducts] = useState([]);
 
 useEffect(() => {
@@ -16,7 +16,7 @@ useEffect(() => {
    <Row xs={1} xl={4} sm={2} lg={3} md={3} >
    {products.map((product) => (
      <Col key={product.id} >
-     <CardItem item={product} />
+     <CardItem isLogedIn={isLogedIn} item={product}/>
      </Col>
    ))}
    </Row>

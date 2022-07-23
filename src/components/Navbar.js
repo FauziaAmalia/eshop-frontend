@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar as NavBar, Container, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { MdShoppingCart,MdPerson } from 'react-icons/md';
-
+ 
 function Navbar({isLogedIn}) {
     const navigate = useNavigate();
 
