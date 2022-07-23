@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Button, Card, Col, Row } from 'react-bootstrap';
-import { MdOutlineDelete } from 'react-icons/md';
+import { MdDeleteForever } from 'react-icons/md';
 import { getPrice } from './utils';
 
 function CartItem({item, setHasFetched}) {
@@ -32,8 +32,8 @@ function CartItem({item, setHasFetched}) {
                 <Card.Text>qty : {item.quantity}</Card.Text>
             </Col>
             <Col className='col-1 d-flex justify-content-center align-items-center'>
-                <Button onClick={() => deleteCartItem(item.id)}>
-                    <MdOutlineDelete/>
+                <Button onClick={() => deleteCartItem(item.id)} className='btn btn-outline-danger'>
+                    <MdDeleteForever/>
                 </Button>
 
             </Col>

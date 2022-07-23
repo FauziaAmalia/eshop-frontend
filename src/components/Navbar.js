@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar as NavBar, Container, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { MdShoppingCart,MdPerson } from 'react-icons/md';
+import { MdShoppingCart,MdPerson, MdOutlineShop } from 'react-icons/md';
  
 function Navbar({isLogedIn}) {
     const navigate = useNavigate();
@@ -11,12 +11,14 @@ function Navbar({isLogedIn}) {
   return (
     <NavBar>
         <Container>
-            <NavBar.Brand>eshop</NavBar.Brand>
+            <NavBar.Brand>
+              <MdOutlineShop style={iconCursor} onClick={() => navigate('/')} className='me-2' size={32} color="royalblue" />
+              E-SHOP</NavBar.Brand>
             <Nav>
                 {isLogedIn ?
                   <>
-                  <MdShoppingCart style={iconCursor} onClick={() => navigate('/carts')} className='me-3' />
-                  <MdPerson style={iconCursor} onClick={() => navigate('/profile')} />
+                  <MdShoppingCart style={iconCursor} onClick={() => navigate('/carts')} className='me-3' size={23}  />
+                  <MdPerson style={iconCursor} onClick={() => navigate('/profile')} size={23}  />
                   </>
                   :
                   <>

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Links from './Links';
 import { Card, Badge, Button, } from 'react-bootstrap';
-import { MdShoppingCart } from 'react-icons/md';
+import { MdAddShoppingCart } from 'react-icons/md';
 import { getPrice } from './utils';
 
 
@@ -41,8 +41,8 @@ function CardItem({item, isLogedIn}) {
           <h6>
             <Badge bg='secondary'>{getPrice(item.price)}</Badge>
           </h6>
-          <Button onClick={addToCart} className='btn btn-primary'>
-            <MdShoppingCart />
+          <Button onClick={addToCart} className='btn btn-outline-dark'>
+            <MdAddShoppingCart  />
           </Button>
         </div>
       </Card.Body>
